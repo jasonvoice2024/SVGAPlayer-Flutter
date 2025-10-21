@@ -3,8 +3,9 @@ part of svgaplayer_flutter_player;
 class SVGASimpleImage extends StatefulWidget {
   final String? resUrl;
   final String? assetsName;
+  final BoxFit fit;
 
-  const SVGASimpleImage({Key? key, this.resUrl, this.assetsName})
+  const SVGASimpleImage({Key? key, this.resUrl, this.assetsName, this.fit = BoxFit.contain})
       : super(key: key);
 
   @override
@@ -37,7 +38,7 @@ class _SVGASimpleImageState extends State<SVGASimpleImage>
     if (animationController == null) {
       return Container();
     }
-    return SVGAImage(animationController!);
+    return SVGAImage(animationController!, fit: widget.fit);
   }
 
   @override
